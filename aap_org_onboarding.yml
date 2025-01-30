@@ -13,7 +13,7 @@
           - org_name is defined
           - org_full_name is defined
           - org_description is defined
-        fail_msg: > 
+        fail_msg: >
           One or more required variables are missing (org_name, org_full_name, org_description)
   tasks:
     - name: Template new Organization
@@ -45,9 +45,9 @@
             block: "{{ lookup('file', '/tmp/team_update.yml') }}"
 
     - name: Include data variables
-      include_vars:
-        file: "{{ item }}"
       loop: "{{ lookup('fileglob', 'data/*', wantlist=True) }}"
+      ansible.builtin.include_vars:
+        file: "{{ item }}"
 
     - name: Add organization
       ansible.builtin.include_role:
