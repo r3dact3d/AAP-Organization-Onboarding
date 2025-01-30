@@ -14,7 +14,7 @@
           - org_full_name is defined
           - org_description is defined
         fail_msg: >
-          One or more required variables are missing (org_name, org_full_name, org_description)
+          One or more required variables are missing
   tasks:
     - name: Template new Organization
       block:
