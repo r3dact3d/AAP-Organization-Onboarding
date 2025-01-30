@@ -42,6 +42,6 @@ ansible-playbook aap_org_team_provisioning.yml -e "org_name=my_org org_full_name
 │   ├── organization.yml.j2        # Organization template
 │   ├── team.yml.j2                # Team template
 ├── data/
-│   ├── aap_organizations.yml      # Organization tracking file
-│   ├── aap_teams.yml              # Team tracking file
+│   ├── aap_organizations.yml      # Organization data file
+│   ├── aap_teams.yml              # Team data file
 ```
