@@ -23,11 +23,11 @@
             src: templates/organization.yml.j2
             dest: /tmp/org_update.yml
 
-        - name: Append new team data
+        - name: Append new org data
           ansible.builtin.blockinfile:
             path: data/aap_organizations.yml
             insertbefore: EOF
-            block: "{{ lookup('file', '/tmp/org_update.yml') }}"
+            block: "{{ lookup('file', '/tmp/org_update.yml') | regex_replace('(?m)^', '  ')  }}"
 
     - name: Template new teams
       block:
@@ -40,12 +40,13 @@
           ansible.builtin.blockinfile:
             path: data/aap_teams.yml
             insertbefore: EOF
-            block: "{{ lookup('file', '/tmp/team_update.yml') }}"
+            block: "{{ lookup('file', '/tmp/team_update.yml') | regex_replace('(?m)^', '  ')  }}"
 
     - name: Include data variables
       loop: "{{ lookup('fileglob', 'data/*', wantlist=True) }}"
       ansible.builtin.include_vars:
         file: "{{ item }}"
+      when: lookup('file', item) | regex_replace('(?m)^#.*\n?', '') | trim != ''
 
     - name: Add organization
       ansible.builtin.include_role:
