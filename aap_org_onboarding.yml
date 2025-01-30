@@ -26,7 +26,6 @@
         - name: Append new team data
           ansible.builtin.blockinfile:
             path: data/aap_organizations.yml
-            marker: "# {mark} {{ org_name }} added {{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
             insertbefore: EOF
             block: "{{ lookup('file', '/tmp/org_update.yml') }}"
 
@@ -40,7 +39,6 @@
         - name: Append new team data
           ansible.builtin.blockinfile:
             path: data/aap_teams.yml
-            marker: "# {mark} {{ org_name }} added {{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
             insertbefore: EOF
             block: "{{ lookup('file', '/tmp/team_update.yml') }}"
 
