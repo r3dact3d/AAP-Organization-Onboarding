@@ -10,6 +10,7 @@ This is meant to be a templated and can be adapted to your environment as you se
 - Required repository secrets:
   - `AAP_VALIDATE_CERTS` (optional, defaults to `false`)
   - `AAP_PASSWORD`
+  - `HUB_TOKEN`
 - Organization variables must be defined:
   - `AAP_USERNAME`
   - `AAP_HOSTNAME`
