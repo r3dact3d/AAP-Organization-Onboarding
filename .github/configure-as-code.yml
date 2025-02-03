@@ -1,0 +1,28 @@
+name: 'Seed CaC Workflow'
+on:
+  workflow_dispatch:
+
+jobs:
+  Ansible:
+    name: 'Ansible'
+    runs-on: ubuntu-latest
+    environment: dev
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+      - name: Pass token securely
+        run: |
+          perl -pi -e 's/tokenish/${{ secrets.TOKEN }}/' ansible.cfg
+
+      - name: Install Python Dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
+
+      - name: Run ansible playbook
+        run: |
+          ansible-galaxy collection install --pre -r collections/requirements.yml
+          ansible-playbook aap_org_team_provisioning.yml -e "org_name=${{ vars.MY_ORG }} org_full_name='My ${{ vars.MY_ORG }}' org_description='Organization for ${{ vars.MY_ORG }}'" \
+            -e "ansible_python_interpreter=$(which python3) AAP_HOSTNAME=${{ vars.AAP_HOSTNAME }} AAP_USERNAME=admin AAP_PASSWORD=${{ secrets.AAP_PASSWORD }}  

@@ -7,15 +7,13 @@ This is meant to be a templated and can be adapted to your environment as you se
 
 ## Requirements
 - Ansible installed
-- Required environment variables:
-  - `AAP_HOSTNAME`
+- Required repository secrets:
   - `AAP_VALIDATE_CERTS` (optional, defaults to `false`)
-  - `AAP_USERNAME`
   - `AAP_PASSWORD`
 - Organization variables must be defined:
-  - `org_name`
-  - `org_full_name`
-  - `org_description`
+  - `AAP_USERNAME`
+  - `AAP_HOSTNAME`
+  - `MY_ORG`
 - Collections Requirements
 
 ```yaml
