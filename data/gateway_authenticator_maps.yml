@@ -4,7 +4,7 @@ gateway_authenticator_maps:
     authenticator: Auth 1
     revoke: true
     map_type: organization
-    organization: Organization 1
+    organization: Windows
     role: Organization Admin
     triggers:
       always: {}
