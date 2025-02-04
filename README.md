@@ -44,3 +44,8 @@ ansible-playbook aap_org_team_provisioning.yml -e "org_name=my_org org_full_name
 │   ├── aap_organizations.yml      # Organization data file
 │   ├── aap_teams.yml              # Team data file
 ```
+
+
+![RH-Certified Remote](images/remote.png)
+
+![RH-Certified Repository](images/repo.png)

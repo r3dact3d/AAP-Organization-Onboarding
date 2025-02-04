@@ -2,10 +2,10 @@
 - name: AAP Organization and Team Provisioning
   hosts: localhost
   vars:
-    aap_hostname: "{{ lookup('env', 'AAP_HOSTNAME') }}"
-    aap_validate_certs: "{{ lookup('env', 'AAP_VALIDATE_CERTS') | default(false) | bool }}"
-    aap_username: "{{ lookup('env', 'AAP_USERNAME') }}"
-    aap_password: "{{ lookup('env', 'AAP_PASSWORD') }}"
+    aap_hostname: "{{ lookup('env', 'CONTROLLER_HOSTNAME') }}"
+    aap_validate_certs: "{{ lookup('env', 'CONTROLLER_VERIFY_SSL') | default(false) | bool }}"
+    aap_username: "{{ lookup('env', 'CONTROLLER_USERNAME') }}"
+    aap_password: "{{ lookup('env', 'CONTROLLER_PASSWORD') }}"
   pre_tasks:
     - name: Assert that org_name, org_full_name, and org_description are defined
       ansible.builtin.assert:
