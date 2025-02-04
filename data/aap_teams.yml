@@ -3,7 +3,7 @@ aap_teams:
   - name: Windows Leads
     organization: Windows
   - name: Windows Devs
-    organization: Windosws
+    organization: Windows
   - name: Linux Leads
     organization: Linux
   - name: Linux Devs
