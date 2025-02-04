@@ -2,6 +2,9 @@
 collections:
   - name: ansible.platform
   - name: ansible.hub
-  - name: ansible.controller
   - name: ansible.eda
   - name: infra.aap_configuration
+  - name: ansible.controller
+#    version: 4.6.3 # Get from /api/v2/ X-API-Product-Version
+    source: https://console.redhat.com/api/automation-hub/content/published/
+    auth_url: https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
