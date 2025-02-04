@@ -49,3 +49,9 @@ ansible-playbook aap_org_team_provisioning.yml -e "org_name=my_org org_full_name
 ![RH-Certified Remote](images/remote.png)
 
 ![RH-Certified Repository](images/repo.png)
+
+![AAP Credential](images/aap_cred.png)
+
+![CaC Project](images/cac_project.png)
+
+![Cac Job Template](images/cac_job_template.png))
