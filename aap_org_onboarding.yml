@@ -8,6 +8,12 @@
     aap_password: "{{ lookup('env', 'CONTROLLER_PASSWORD') }}"
 
   tasks:
+    - name: Include data variables
+      loop: "{{ lookup('fileglob', 'data/*', wantlist=True) }}"
+      ansible.builtin.include_vars:
+        file: "{{ item }}"
+      when: lookup('file', item) | regex_replace('(?m)^#.*\n?', '') | trim != ''
+      
     - name: Add organization
       ansible.builtin.include_role:
         name: infra.aap_configuration.gateway_organizations
