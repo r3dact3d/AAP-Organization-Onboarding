@@ -4,3 +4,5 @@ aap_organizations:
     description: Organization for Windows team
   - name: Linux
     description: Organization for Linux team
+  - name: Network
+    description: Organization for Network team
