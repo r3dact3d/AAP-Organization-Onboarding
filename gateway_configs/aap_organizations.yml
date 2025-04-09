@@ -6,5 +6,3 @@ aap_organizations:
     description: Organization for Linux team
   - name: Network
     description: Organization for Network team
-  - name: Dev
-    description: Organization for Dev AAP
